@@ -1,0 +1,15 @@
+body {
+	font: Times New Roman;
+	background-color: black;
+	color: yellow;
+	font-size: 22px;
+}
+img {
+	border: 0;
+	float: left;
+	margin: 10px 15px 25px 30px;
+}
+
+table, td {
+	border: 3px solid yellow;
+}
