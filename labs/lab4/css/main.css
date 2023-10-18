@@ -1,0 +1,29 @@
+.main-quote-container {
+    background-repeat: no-repeat;
+    height: 640px;
+    background-position: center;
+    background-size: cover;
+}
+
+.icon {
+    margin: 0 auto 5px;
+    width:50%;
+    text-align: center;
+    align-items: center;
+    font-size: 50px;
+}
+
+.slogan {
+    color: white;
+}
+
+.quote-registation-container {
+    background-color: orangered;
+    max-width: 300px;
+}
+
+.box-container {
+    height: 250px;
+    min-width: 200px;
+    background-color: orangered;
+}
