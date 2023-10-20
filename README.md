@@ -15,4 +15,4 @@
 
 <h3>Результат:</h3>
 
-![image](https://github.com/YurijKryshtof0222/WebLabs/assets/105464154/5e3e6b73-2fcf-4b61-90d0-e0be1dea16be)
+![image](https://github.com/YurijKryshtof0222/WebLabs/assets/105464154/296370cd-ba1a-4cd5-a8f4-83b0ab79f0f9)
