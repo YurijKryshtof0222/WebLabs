@@ -6,24 +6,29 @@
 }
 
 .icon {
-    margin: 0 auto 5px;
+    margin: 0 auto 0;
     width:50%;
     text-align: center;
     align-items: center;
-    font-size: 50px;
+    font-size: 70px;
 }
 
 .slogan {
     color: white;
 }
 
+.grey-container {
+    background-color: gray;
+}
+
 .quote-registation-container {
     background-color: orangered;
-    max-width: 300px;
+    max-width: 220px;
 }
 
 .box-container {
-    height: 250px;
-    min-width: 200px;
+    font-size: 14px;
+    max-height: 240px;
+    min-width: 210px;
     background-color: orangered;
 }
