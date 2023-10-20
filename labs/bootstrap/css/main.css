@@ -6,8 +6,7 @@
 }
 
 .icon {
-    margin: 0 auto 0;
-    width:50%;
+    margin: 0 auto 5px;   
     text-align: center;
     align-items: center;
     font-size: 70px;
@@ -18,17 +17,30 @@
 }
 
 .grey-container {
-    background-color: gray;
+    background-color: rgb(214, 214, 214);
+    color: black;
 }
 
 .quote-registation-container {
-    background-color: orangered;
+    /* background-color: rgb(234, 152, 0); */
+    background-color: red;
     max-width: 220px;
 }
 
 .box-container {
     font-size: 14px;
     max-height: 240px;
-    min-width: 210px;
-    background-color: orangered;
+    min-width: 190px;
+    /* background-color: rgb(234, 152, 0); */
+    background-color: red;
+}
+
+.customer-photo {
+    height: 200px;
+    width: 200px;
+}
+
+.car-driver-photo {
+    height: 200px;
+    width: 400px;
 }
