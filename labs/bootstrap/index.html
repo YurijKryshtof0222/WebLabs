@@ -16,6 +16,26 @@
 
   <body>
 
+    <!-- fixed-top -->
+    <nav class="navbar navbar-expand-sm bg-light sticky-top ">
+      <div class="container-fluid">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#main">Main</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#feedback">Feedback</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#tariffs">Tarrifs</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#quality_assurance">Quialty Insurance</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    
     <div class="container p-2">
       <div class ="row">
         <div class="col-6 text-center">
@@ -28,12 +48,12 @@
         </div>
       </div>
     </div>
-
+    
     <div class="container main-quote-container rounded" style="background-image: url('images/woman_driver.png')"> 
       
       <div class="container p-5">
         <div class="row">
-
+          <a name="main"></a>
           <div class="col-sm-8 col-xl-10">
             <h4 class="display-4 slogan">Accidents Happen.<br> Be Insured & Be Assured.</h4>
               <p class="slogan"><i class="icon-ok"></i>very low payment option available</p>
@@ -106,18 +126,19 @@
         </div>
         
         <div class="pt-3">
+          <a name="feedback"></a>
           <div class="row pt-3 grey-container rounded text-center">    
-              <div class="col-lg-4 col-md-4 col-sm-3 center-block">
+              <div class="col-lg-4 col-md-4 col-sm-12 center-block">
                 <img src="images/bohdan.jpg" class="img-fluid customer-photo rounded-circle mx-auto d-block">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus rerum vel distinctio accusamus assumenda hic.</p>
                 <h4 class="text-uppercase text-danger text-center">Bogdan Mechanic</h4>
               </div>
-              <div class="col-lg-4 col-md-4 col-sm-3 center-block">
+              <div class="col-lg-4 col-md-4 col-sm-12 center-block">
                 <img src="images/herrington.webp" class="img-fluid customer-photo rounded-circle mx-auto d-block">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus rerum vel distinctio accusamus assumenda hic.</p>
                 <h4 class="text-uppercase text-danger text-center">Billy Herringhton</h4>
               </div>
-              <div class="col-lg-4 col-md-4 col-sm-3 center-block">
+              <div class="col-lg-4 col-md-4 col-sm-12 center-block">
                 <img src="images/papich.jpg" class="img-fluid customer-photo rounded-circle mx-auto d-block">
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus rerum vel distinctio accusamus assumenda hic.</p>
                 <h4 class="text-uppercase text-danger text-center">Vitalii Tsal'</h4>
@@ -125,7 +146,7 @@
           </div>
         </div>
 
-        <h3 class="text-center pt-2">Tariffs</h3>
+        <h3 class="text-center pt-2"><a name="tariffs">Tariffs</h3>
         <div class="table-responsive container">
           <table class="table table-striped table-hover table-bordered table-sm">
             <thead>
@@ -191,16 +212,19 @@
 
         <div class="pt-3">
           <div class="row pt-1 grey-container rounded text-center">
-            <h3 class="text-center">Qulaity Insurance Leads</h3>    
-            <div class="col-lg-4 col-md-4 col-sm-3 center-block">
+            <h3 class="text-center">
+              <a name="quality_assurance"></a>
+              Qulaity Insurance Leads
+            </h3>    
+            <div class="col-lg-4 col-md-4 col-sm-4 center-block">
               <img src="images/car-driver1-bottom.jpg" class="img-fluid car-driver-photo rounded mx-auto d-block">
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis id omnis maxime quo debitis provident laboriosam assumenda. Odio dolorem hic fugit animi maiores atque maxime amet similique adipisci, aperiam cupiditate vitae. Blanditiis perferendis expedita tempora repellat officiis numquam, laboriosam odio?.</p>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-3 center-block">
+            <div class="col-lg-4 col-md-4 col-sm-4 center-block">
               <img src="images/car-driver2-bottom.avif" class="img-fluid car-driver-photo rounded mx-auto d-block">
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor nesciunt doloremque perspiciatis quisquam accusantium possimus illo. Soluta rerum necessitatibus dolores! Hic, deserunt autem accusamus, iure corporis illum quae porro impedit fugiat, sit accusantium voluptate praesentium? Pariatur consectetur modi neque exercitationem.</p>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-3 center-block">
+            <div class="col-lg-4 col-md-4 col-sm-4 center-block">
               <img src="images/car-driver3-bottom.jpg" class="img-fluid car-driver-photo rounded mx-auto d-block">
               <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente blanditiis aspernatur quibusdam dolores delectus ducimus quos, quas eos tenetur magnam dolore animi facere mollitia beatae perspiciatis cupiditate doloremque aliquam amet fugiat velit. Voluptas nostrum harum, magnam quibusdam adipisci placeat nemo!</p>
             </div>
@@ -209,10 +233,17 @@
       
       </section>
 
-      <div class="pt-2 text-center">Copyright © 2023. All rights Reserved. Designed By Yurii Kryshtof</div>
+      <ul class="pagination fixed-bottom justify-content-center">
+        <li class="page-item"><a class="page-link" href="../lab1/index.html">1</a></li>
+        <li class="page-item"><a class="page-link" href="../lab2/index.html">2</a></li>
+        <li class="page-item"><a class="page-link" href="../lab3/index.html">3</a></li>
+        <li class="page-item"><a class="page-link disabled" href="#">Bootstrap</a></li>
+      </ul>
+
+      <div class="pt-3 text-center" style="height: 100px;">Copyright © 2023. All rights Reserved. Designed By Yurii Kryshtof</div>
+      <div class=>
     </div>  
 
-    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
