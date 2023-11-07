@@ -3,6 +3,7 @@
     height: 640px;
     background-position: center;
     background-size: cover;
+    background-image: url('../images/woman_driver.png')
 }
 
 .icon {
