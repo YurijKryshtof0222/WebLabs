@@ -1,18 +1,18 @@
 # WebLabs
 
-<h1>Веб-технології та веб-дизайн</h1>
-<h2>Landing Page</h2>
-<h3>Лабораторна №7</h3>
+<h1 align="center">Веб-технології та веб-дизайн </br>
+  Landing Page</br>
+  Тема:Оренда автомобілів
+</h1>
+<h2 align="center">Лабораторна №7</h2>
+<h4 align="center">Варіант-10</h4>
 
-![image](https://github.com/YurijKryshtof0222/WebLabs/assets/105464154/4f13dfeb-42fa-4e19-be5f-842f16858247)
-
-
-<h3>Варіант-10</h3>
-Тема: Оренда автомобілів
-
-![image](https://github.com/YurijKryshtof0222/WebLabs/assets/105464154/0a725966-76b7-44a1-bdf8-665faf2290bd)
+<p align="center">
+  <img src="https://github.com/YurijKryshtof0222/WebLabs/assets/105464154/b31e1206-dcc6-43fb-a4b7-957824b548ad">
+  <img src="https://github.com/YurijKryshtof0222/WebLabs/assets/105464154/ca11ef23-3669-41d1-9ab0-9657a592a06d">
+</p>
 
 
 <h3>Результат:</h3>
 
-![image](https://github.com/YurijKryshtof0222/WebLabs/assets/105464154/296370cd-ba1a-4cd5-a8f4-83b0ab79f0f9)
+![image](https://github.com/YurijKryshtof0222/WebLabs/assets/105464154/b95400ac-6bee-4084-b725-beecc7fa8089)
