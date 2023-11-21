@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна робота №8</title>
+
+    <script src="scripts/formulas.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
+          rel="stylesheet" 
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
+          crossorigin="anonymous">
+    <link href="css/main.css" 
+          rel="stylesheet">
+    <link href="css/fontello.css",
+          rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-4">
+        <h2 class="mb-4 text-center">Табулювання функцій a і b</h2>
+        <div class="table-responsive container">
+
+            <table border="1" class="table table-striped table-hover table-bordered table-sm">
+                <thead>
+                    <tr>
+                        <th>x</th>
+                        <th>y</th>
+                        <th>z</th>
+                        <th>b(x, y, z)</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody1"></tbody>
+            </table>
+
+            <table border="1" class="table table-striped table-hover table-bordered table-sm">
+                <thead>
+                    <tr>
+                        <th>x</th>
+                        <th>y</th>
+                        <th>z</th>
+                        <th>a(x, y, z, b)</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody2"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+    // Введені значення
+        var xMin = -1;
+        var xMax = 1;
+        var deltaX = 0.2;
+        var yMin = -2;
+        var yMax = 2;
+        var deltaY = 0.2;
+        var z = 1.32;
+
+        // Отримання таблиці та виведення результатів
+        var tableBody1 = document.getElementById('tableBody1');
+        var tableBody2 = document.getElementById('tableBody2');
+
+        for (var x = xMin; x <= xMax; x += deltaX) {
+            for (var y = yMin; y <= yMax; y += deltaY) {
+                var bValue = b(x, y, z);
+                var aValue = a(x, y, z, bValue);
+
+                var row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${x.toFixed(2)}</td>
+                    <td>${y.toFixed(2)}</td>
+                    <td>${z.toFixed(2)}</td>
+                    <td>${bValue.toFixed(4)}</td>
+                `;
+                tableBody1.appendChild(row);
+
+                var row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${x.toFixed(2)}</td>
+                    <td>${y.toFixed(2)}</td>
+                    <td>${z.toFixed(2)}</td>
+                    <td>${aValue.toFixed(4)}</td>
+                `;
+                tableBody2.appendChild(row)
+            }
+        }
+        </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
+        crossorigin="anonymous"></script>
+
+    </body>
+</html>
