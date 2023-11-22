@@ -21,7 +21,6 @@ if (document.getElementById("emailRadio").checked) {
 
 var massiveText = document.getElementById("massive_text").value;
 
-// Створення рядка для відображення у вікні alert
 var alertMessage =
     "Your question was submitted succesfully" +
     "\nInfo" +
@@ -31,6 +30,5 @@ var alertMessage =
     "\nReply method: " + replyRadio +
     "\nQuestion: " + massiveText;
 
-// Виведення значень у вікно alert
 alert(alertMessage);
 });
