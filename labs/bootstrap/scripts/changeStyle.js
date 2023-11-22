@@ -1,6 +1,6 @@
 function changeBackground() {
     document.body.style.background = '#000000';
-    document.body.style.color  = 'white';
+    document.body.style.color = 'white';
   }
 
 function setBorders() {
@@ -9,7 +9,7 @@ function setBorders() {
 }
 
 function changeListStyle() {
-  var ul = document.querySelector('ul');
+  var ul = document.getElementById('my-ul');
   ul.style.listStyle = 'square';
 }
 
@@ -19,6 +19,5 @@ function setMarginsAndPadding() {
 }
 
 function changeTextProperties() {
-  document.body.style.color = '#990099';
-  document.body.style.fontFamily = 'Georgia, serif';
+    document.body.style.fontFamily = 'Helvetica';
 }
