@@ -1,18 +1,17 @@
 # WebLabs
 
-<h1>Веб-технології та веб-дизайн</h1>
-<h2>Landing Page</h2>
-<h3>Лабораторна №4</h3>
+<h1 align="center">Веб-технології та веб-дизайн </br>
+  Landing Page</br>
+  Тема:Оренда автомобілів
+</h1>
+<h2 align="center">Лабораторна №10</h2>
 
-![image](https://github.com/YurijKryshtof0222/WebLabs/assets/105464154/38fb15a7-96b1-4db2-869d-66d22aafa900)
-
-<h3>Варіант-1</h3>
-Тема: Оренда автомобілів
-
-<h3>Лабораторна №5</h3>
-
-![image](https://github.com/YurijKryshtof0222/WebLabs/assets/105464154/fdda810b-f93f-460a-ac82-41c3d44941d7)
+<p align="center">
+  <img src="https://github.com/YurijKryshtof0222/WebLabs/assets/105464154/bff24f58-a14c-4f92-8915-31daef4aa1a0">
+  <img src="https://github.com/YurijKryshtof0222/WebLabs/assets/105464154/5bd9fc97-74de-4080-a968-3b748bc45c2e">
+</p>
 
 <h3>Результат:</h3>
+<p>При нажиманні кнопки javascript код з файлу <a href="https://github.com/YurijKryshtof0222/WebLabs/blob/laba10/labs/bootstrap/scripts/changeStyle.js"><code>bootstrap/scripts/changeStyle.js</code></a> - у ній реалізовані функції, які роблять вищезгадане, що проситься у завданні лабораторної роботи</p>
 
-![image](https://github.com/YurijKryshtof0222/WebLabs/assets/105464154/296370cd-ba1a-4cd5-a8f4-83b0ab79f0f9)
+![](https://github.com/YurijKryshtof0222/WebLabs/assets/105464154/ec55625b-9131-43a8-b457-93fb0f418ec1)
