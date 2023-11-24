@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна робота №8</title>
+
+    <script src="scripts/formulas.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
+          rel="stylesheet" 
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
+          crossorigin="anonymous">
+    <link href="css/main.css" 
+          rel="stylesheet">
+    <link href="css/fontello.css",
+          rel="stylesheet">
+</head>
+<body>
+    
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Табулювання функцій a і b</title>
+    <!-- Додайте посилання на Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-4">
+    <h2 class="mb-4">Табулювання функції a</h2>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>y \\ x</th>
+                <th>-1</th>
+                <th>-0.8</th>
+                <th>-0.6</th>
+                <th>-0.4</th>
+                <th>-0.2</th>
+                <th>0</th>
+                <th>0.2</th>
+                <th>0.4</th>
+                <th>0.6</th>
+                <th>0.8</th>
+                <th>1</th>
+            </tr>
+        </thead>
+        <tbody id="tableBodyA"></tbody>
+    </table>
+
+    <h2 class="mb-4">Табулювання функції b</h2>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>y \\ x</th>
+                <th>-1</th>
+                <th>-0.8</th>
+                <th>-0.6</th>
+                <th>-0.4</th>
+                <th>-0.2</th>
+                <th>0</th>
+                <th>0.2</th>
+                <th>0.4</th>
+                <th>0.6</th>
+                <th>0.8</th>
+                <th>1</th>
+            </tr>
+        </thead>
+        <tbody id="tableBodyB"></tbody>
+    </table>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="formulas.js"></script>
+<script>
+    var xMin = -1;
+    var xMax = 1;
+    var deltaX = 0.2;
+    var yMin = -2;
+    var yMax = 2;
+    var deltaY = 0.2;
+    var z = 1.32;
+
+    var tableBodyA = document.getElementById('tableBodyA');
+    var tableBodyB = document.getElementById('tableBodyB');
+
+    for (var y = yMin; y <= yMax; y += deltaY) {
+        // Таблиця для функції a
+        var rowA = document.createElement('tr');
+        rowA.innerHTML = `<td>${y}</td>`;
+        for (var i = xMin; i <= xMax; i += deltaX) {
+            var bValue = b(i, y, z);
+            var aValue = a(i, y, z, bValue);
+            rowA.innerHTML += `<td>${aValue.toFixed(2)}</td>`;
+        }
+        tableBodyA.appendChild(rowA);
+
+        // Таблиця для функції b
+        var rowB = document.createElement('tr');
+        rowB.innerHTML = `<td>${y}</td>`;
+        for (var i = xMin; i <= xMax; i += deltaX) {
+            var bValue = b(i, y, z);
+            rowB.innerHTML += `<td>${bValue.toFixed(2)}</td>`;
+        }
+        tableBodyB.appendChild(rowB);
+    }
+    </script>
+    </body>
+</html>

@@ -1,3 +1,11 @@
+var xMin = -1;
+var xMax = 1;
+var deltaX = 0.2;
+var yMin = -2;
+var yMax = 2;
+var deltaY = 0.2;
+var z = 1.32;
+
 function a(x, y, z, b) {
     result =  Math.pow(1 + y, 2);
     result *= Math.pow(Math.abs(x + y), 0.3) / Math.pow(b, 2) + z;
