@@ -16,4 +16,4 @@
 
 <h4 align="center">Скріншот Landing Page</h4>
 
-![image](https://github.com/YurijKryshtof0222/WebLabs/assets/105464154/7f8e9b24-44a4-4989-9228-b2431f4b8bec)
+![Screenshot_2023-11-24_10-32-29](https://github.com/YurijKryshtof0222/WebLabs/assets/105464154/164874bc-eae4-416e-93b1-201ffc77ddd3)
