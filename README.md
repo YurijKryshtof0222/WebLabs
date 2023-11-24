@@ -12,6 +12,6 @@
 </p>
 
 <h3>Результат:</h3>
-<p>При нажиманні кнопки javascript код з файлу <a href="https://github.com/YurijKryshtof0222/WebLabs/blob/laba10/labs/bootstrap/scripts/changeStyle.js"><code>bootstrap/scripts/changeStyle.js</code></a> - у ній реалізовані функції, які роблять вищезгадане, що проситься у завданні лабораторної роботи</p>
+<p><a href="https://github.com/YurijKryshtof0222/WebLabs/blob/laba10/labs/bootstrap/scripts/changeStyle.js"><code>bootstrap/scripts/changeStyle.js</code></a> - у ній реалізовані функції, які роблять вищезгадане, що проситься у завданні лабораторної роботи</p>
 
 https://github.com/YurijKryshtof0222/WebLabs/assets/105464154/4db790c1-5cc9-4617-bf2e-b7ca8f23d8a1
