@@ -12,10 +12,10 @@
           rel="stylesheet">
     <link href="css/fontello.css",
           rel="stylesheet">
+    <script src="scripts/formulas.js"></script>
   </head>
 
   <body>
-
     <!-- fixed-top -->
     <nav class="navbar navbar-expand-lg bg-light sticky-top">
       <div class="container">
@@ -401,6 +401,93 @@
             Dicta voluptatibus molestias officia nobis 
             in distinctio odit nesciunt delectus maxime praesentium ut atque, aperiam suscipit debitis, 
             ad accusantium temporibus rerum ratione assumenda eius? Animi ullam voluptatibus sequi magni repellendus, numquam assumenda enim molestias alias laudantium, facere perferendis repellat!
+          </div>
+
+        </div>
+
+        <div class="pt-3">
+          <h2>Useless inrelevant info</h2>
+          <a name="collapse-el" class="form-control btn btn-primary" data-bs-toggle="collapse" data-bs-target="#collapse-table">Show table</a>
+          <div id="collapse-table" class="collapse">
+            <div class="container mt-4 table-responsive">
+              <h2 class="mb-4">Табулювання функції a</h2>
+          
+              <table class="table table-bordered">
+                  <thead>
+                      <tr>
+                          <th>y \\ x</th>
+                          <th>-1</th>
+                          <th>-0.8</th>
+                          <th>-0.6</th>
+                          <th>-0.4</th>
+                          <th>-0.2</th>
+                          <th>0</th>
+                          <th>0.2</th>
+                          <th>0.4</th>
+                          <th>0.6</th>
+                          <th>0.8</th>
+                          <th>1</th>
+                      </tr>
+                  </thead>
+                  <tbody id="tableBodyA"></tbody>
+              </table>
+          
+              <h2 class="mb-4">Табулювання функції b</h2>
+          
+              <table class="table table-bordered">
+                  <thead>
+                      <tr>
+                          <th>y \\ x</th>
+                          <th>-1</th>
+                          <th>-0.8</th>
+                          <th>-0.6</th>
+                          <th>-0.4</th>
+                          <th>-0.2</th>
+                          <th>0</th>
+                          <th>0.2</th>
+                          <th>0.4</th>
+                          <th>0.6</th>
+                          <th>0.8</th>
+                          <th>1</th>
+                      </tr>
+                  </thead>
+                  <tbody id="tableBodyB"></tbody>
+              </table>
+              </div>
+          
+              <script>
+              var xMin = -1;
+              var xMax = 1;
+              var deltaX = 0.2;
+              var yMin = -2;
+              var yMax = 2;
+              var deltaY = 0.2;
+              var z = 1.32;
+          
+              var tableBodyA = document.getElementById('tableBodyA');
+              var tableBodyB = document.getElementById('tableBodyB');
+          
+              for (var y = yMin; y <= yMax; y += deltaY) {
+                  // Таблиця для функції a
+                  var rowA = document.createElement('tr');
+                  rowA.innerHTML = `<td>${y.toFixed(2)}</td>`;
+                  for (var i = xMin; i <= xMax; i += deltaX) {
+                      var bValue = b(i, y, z);
+                      var aValue = a(i, y, z, bValue);
+                      rowA.innerHTML += `<td>${aValue.toFixed(2)}</td>`;
+                  }
+                  tableBodyA.appendChild(rowA);
+          
+                  // Таблиця для функції b
+                  var rowB = document.createElement('tr');
+                  rowB.innerHTML = `<td>${y.toFixed(2)}</td>`;
+                  for (var i = xMin; i <= xMax; i += deltaX) {
+                      var bValue = b(i, y, z);
+                      rowB.innerHTML += `<td>${bValue.toFixed(2)}</td>`;
+                  }
+                  tableBodyB.appendChild(rowB);
+              }
+              </script>
           </div>
 
         </div>
