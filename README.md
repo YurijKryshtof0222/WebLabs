@@ -1,18 +1,12 @@
 # WebLabs
 
-<h1>Веб-технології та веб-дизайн</h1>
-<h2>Landing Page</h2>
-<h3>Лабораторна №4</h3>
+<h2 align="center">Лабораторна №8</h2>
+<h4 align="center">Варіант-10</h4>
 
-![image](https://github.com/YurijKryshtof0222/WebLabs/assets/105464154/38fb15a7-96b1-4db2-869d-66d22aafa900)
-
-<h3>Варіант-1</h3>
-Тема: Оренда автомобілів
-
-<h3>Лабораторна №5</h3>
-
-![image](https://github.com/YurijKryshtof0222/WebLabs/assets/105464154/fdda810b-f93f-460a-ac82-41c3d44941d7)
-
-<h3>Результат:</h3>
-
-![image](https://github.com/YurijKryshtof0222/WebLabs/assets/105464154/296370cd-ba1a-4cd5-a8f4-83b0ab79f0f9)
+<p align="center">
+  <img src="https://github.com/YurijKryshtof0222/WebLabs/assets/105464154/3a818742-f543-44eb-8fee-1f3026bd81b0">
+  <img src="https://github.com/YurijKryshtof0222/WebLabs/assets/105464154/f5eea4c4-4e54-4e2f-87c4-42467bf95c9a">
+  <img src="https://github.com/YurijKryshtof0222/WebLabs/assets/105464154/7cefc608-504c-417c-974a-ef5956b035b1">
+  <img src="https://github.com/YurijKryshtof0222/WebLabs/assets/105464154/a5f6bb1c-60ae-42ac-91e5-afb274542d3c">
+  <img src="https://github.com/YurijKryshtof0222/WebLabs/assets/105464154/a2663719-eb89-481e-8a3b-3b400f033363">
+</p>
