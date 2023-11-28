@@ -3,7 +3,13 @@
     height: 640px;
     background-position: center;
     background-size: cover;
-    background-image: url('../images/woman_driver.png')
+    background-image: 
+    linear-gradient(to bottom, rgba(6, 0, 0, 0.307), #7513187b),
+    url('../images/woman_driver.png');
+}
+
+.main-quote-container {
+
 }
 
 .icon {
