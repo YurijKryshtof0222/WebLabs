@@ -4,14 +4,12 @@
   Landing Page</br>
   Тема:Оренда автомобілів
 </h1>
-<h2 align="center">Лабораторна №10</h2>
+<h2 align="center">Лабораторна №11</h2>
 
 <p align="center">
-  <img src="https://github.com/YurijKryshtof0222/WebLabs/assets/105464154/bff24f58-a14c-4f92-8915-31daef4aa1a0">
-  <img src="https://github.com/YurijKryshtof0222/WebLabs/assets/105464154/5bd9fc97-74de-4080-a968-3b748bc45c2e">
+  <img src="https://github.com/YurijKryshtof0222/WebLabs/assets/105464154/367d0a2e-1361-4ed0-8ef0-1ac364b9538f">
+  <img src="https://github.com/YurijKryshtof0222/WebLabs/assets/105464154/b4aaa445-c08f-4197-93d2-2d7265cc1fab">
 </p>
 
 <h3>Результат:</h3>
-<p><a href="https://github.com/YurijKryshtof0222/WebLabs/blob/laba10/labs/bootstrap/scripts/changeStyle.js"><code>bootstrap/scripts/changeStyle.js</code></a> - у ній реалізовані функції, які роблять вищезгадане, що проситься у завданні лабораторної роботи</p>
-
-https://github.com/YurijKryshtof0222/WebLabs/assets/105464154/4db790c1-5cc9-4617-bf2e-b7ca8f23d8a1
+<p><a href="https://github.com/YurijKryshtof0222/WebLabs/blob/laba11/labs/bootstrap/scripts/jqueryScripts.js"><code>bootstrap/scripts/jqueryScripts.js</code></a> - jquery cкрипт який відповідає за функцію закриття спливаючого увідомлення про використання сookie-файлів сайтом</p>
