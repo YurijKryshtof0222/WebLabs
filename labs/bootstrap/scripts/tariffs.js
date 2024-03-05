@@ -10,7 +10,7 @@ angular.module('myApp', []).controller('userCtrl', function ($scope) {
     
         $scope.editUser = function (id) {
             $scope.hideform = false;
-            if (id == ++idCounter) {
+            if (id == 'new') {
                 $scope.edit = true;
                 $scope.policyName = '';
                 $scope.coverageType = '';
@@ -33,15 +33,22 @@ angular.module('myApp', []).controller('userCtrl', function ($scope) {
         $scope.saveUser = function () {
             $scope.hideform = false;
             if ($scope.edit == true) {
-                $scope.LENGTH = $scope.tariffs.length;
-                $scope.tariffs.push({id: $scope.LENGTH + 1, 
-                    policyName: $scope.policyName, 
-                    coverageType: $scope.coverageType,
-                    premiumCost: $scope.premiumCost,
-                    deductible: $scope.deductible,
-                    discounts: $scope.discounts,
-                    additionalBenefits: $scope.additionalBenefits
-                });
+                // Перевірка чи всі необхідні поля заповнені
+                if ($scope.policyName && $scope.coverageType && $scope.premiumCost && $scope.deductible && $scope.discounts && $scope.additionalBenefits) {
+                    $scope.LENGTH = $scope.tariffs.length;
+                    $scope.tariffs.push({
+                        id: $scope.LENGTH + 1,
+                        policyName: $scope.policyName,
+                        coverageType: $scope.coverageType,
+                        premiumCost: $scope.premiumCost,
+                        deductible: $scope.deductible,
+                        discounts: $scope.discounts,
+                        additionalBenefits: $scope.additionalBenefits
+                    });
+                } else {
+                    alert("Please fill correct values in all fields before saving.");
+                    return; // Перериваємо операцію збереження
+                }
             } else {
                 $scope.tariffs[$scope.index].policyName = $scope.policyName;
                 $scope.tariffs[$scope.index].coverageType = $scope.coverageType;
@@ -52,6 +59,9 @@ angular.module('myApp', []).controller('userCtrl', function ($scope) {
             }
         };
     
+        $scope.containsNumbers = function(value) {
+            return value.length == 0 || /\d/.test(value);        
+        };
     });
 
 angular.module('myApp').filter('orderByPremium', function() {
@@ -59,7 +69,8 @@ angular.module('myApp').filter('orderByPremium', function() {
         if (!angular.isArray(input)) return input;
         
         return input.slice().sort(function(a, b) {
-            return a.premiumCost - b.premiumCost;
+            return -(a.premiumCost - b.premiumCost);
         });
     };
 });
+

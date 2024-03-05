@@ -349,24 +349,24 @@
             <div class="row align-items-center pt-2">
               <div class="col-md-6">
                 <label class="form-label">Policy Name:</label>
-                <input class="form-control" type="text" ng-model="policyName" placeholder="Policy Name">
+                <input class="form-control" type="text" ng-model="policyName" placeholder="Policy Name" ng-class="{ 'ng-valid-key' : !containsNumbers(policyName), 'ng-invalid-key' : containsNumbers(policyName)}">
                 <br>
                 <label class="form-label">Coverage Type:</label>
-                <input class="form-control" type="text" ng-model="coverageType" placeholder="Coverage Type">
+                <input class="form-control" type="text" ng-model="coverageType" placeholder="Coverage Type" ng-class="{ 'ng-valid-key' : !containsNumbers(coverageType), 'ng-invalid-key' : containsNumbers(coverageType)}">
                 <br>
                 <label class="form-label">Premium cost:</label>
-                <input class="form-control" type="number" min="0" ng-model="premiumCost" placeholder="Premium cost(Monthly)">
+                <input class="form-control" type="number" min="0" ng-model="premiumCost" placeholder="Premium cost(Monthly)" ng-class="{ 'ng-valid-key': premiumCost > 0, 'ng-invalid-key': !(premiumCost>0)}">
                 <br>
               </div>
               <div class="col-md-6">
-                <label class="form-label">Deductible:</label>
-                <input class="form-control" type="number" min="0" ng-model="deductible" placeholder="Deductible">
-                <br>
                 <label class="form-label">Discounts:</label>
-                <input class="form-control" type="text" ng-model="discounts" placeholder="Discounts">
+                <input class="form-control" type="text" ng-model="discounts" placeholder="Discounts" ng-class="{ 'ng-valid-key' : !containsNumbers(discounts), 'ng-invalid-key' : containsNumbers(discounts) }">
                 <br>
                 <label class="form-label">Additional Benefits:</label>
-                <input class="form-control" type="text" ng-model="additionalBenefits" placeholder="Additional Benefits">
+                <input class="form-control" type="text" ng-model="additionalBenefits" placeholder="Additional Benefits" ng-class="{ 'ng-valid-key' : !containsNumbers(additionalBenefits), 'ng-invalid-key' : containsNumbers(additionalBenefits) }">
+                <br>
+                <label class="form-label">Deductible:</label>
+                <input class="form-control" type="number" min="0" ng-model="deductible" placeholder="Deductible" ng-class="{ 'ng-valid-key': deductible > 0, 'ng-invalid-key': !(deductible>0)  }">
                 <br>
               </div>
             </div>
