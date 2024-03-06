@@ -314,10 +314,24 @@
 
         <h3 class="text-center pt-2"><a name="tariffs">Tariffs</h3>
         <div ng-app="myApp" ng-controller="userCtrl" class="table-responsive container">
+
+          <h4 class="text-center pt-1">Choose tariff you want purchase</h4>
+
+          <!-- <select class="form-select">
+            <option ng-repeat="tariff in tariffs">{{tariff.policyName}}, {{tariff.coverageType}}</option>
+          </select> -->
+
+          <select class="form-select" class="form-select" ng-model="selectedTariff" ng-options="tariff.policyName + ', ' + tariff.coverageType for tariff in tariffs"></select>
+          <p>You choose {{selectedTariff.policyName}}</p>
+          <p>Its premium cost: {{selectedTariff.premiumCost}}</p>
+          <p>Its deductible: {{selectedTariff.deductible}}</p>
+
+          <h4 class="text-center pt-1">Edit</h4>
           <table class="table table-striped table-hover table-bordered table-sm">
             <thead>
               <tr>
                 <th></th>
+                <th>ID</th>
                 <th>Policy Name</th>
                 <th>Coverage Type</th>
                 <th>Premium Cost (Monthly/Annual)</th>
@@ -331,6 +345,7 @@
                 <td>
                     <button class="btn btn-secondary" ng-click="editUser(tariff.id)">Edit</button>
                 </td>
+                <td>{{ tariff.id}}</td>
                 <td>{{ tariff.policyName}}</td>
                 <td>{{ tariff.coverageType}}</td>
                 <td>{{ tariff.premiumCost}}</td>
