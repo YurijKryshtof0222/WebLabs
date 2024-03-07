@@ -345,7 +345,7 @@
                 <td>
                     <button class="btn btn-secondary" ng-click="editUser(tariff.id)">Edit</button>
                 </td>
-                <td>{{ tariff.id}}</td>
+                <td>{{ $index + 1}}</td>
                 <td>{{ tariff.policyName}}</td>
                 <td>{{ tariff.coverageType}}</td>
                 <td>{{ tariff.premiumCost}}</td>
@@ -365,37 +365,46 @@
               <div class="col-md-6">
                 <label class="form-label">Policy Name:</label>
                 <input class="form-control" type="text" ng-model="policyName" placeholder="Policy Name" ng-class="{ 'ng-valid-key' : !containsNumbers(policyName), 'ng-invalid-key' : containsNumbers(policyName)}">
-                <br>
-                <label class="form-label">Coverage Type:</label>
-                <input class="form-control" type="text" ng-model="coverageType" placeholder="Coverage Type" ng-class="{ 'ng-valid-key' : !containsNumbers(coverageType), 'ng-invalid-key' : containsNumbers(coverageType)}">
-                <br>
-                <label class="form-label">Premium cost:</label>
-                <input class="form-control" type="number" min="0" ng-model="premiumCost" placeholder="Premium cost(Monthly)" ng-class="{ 'ng-valid-key': premiumCost > 0, 'ng-invalid-key': !(premiumCost>0)}">
-                <br>
-              </div>
-              <div class="col-md-6">
-                <label class="form-label">Discounts:</label>
-                <input class="form-control" type="text" ng-model="discounts" placeholder="Discounts" ng-class="{ 'ng-valid-key' : !containsNumbers(discounts), 'ng-invalid-key' : containsNumbers(discounts) }">
-                <br>
-                <label class="form-label">Additional Benefits:</label>
-                <input class="form-control" type="text" ng-model="additionalBenefits" placeholder="Additional Benefits" ng-class="{ 'ng-valid-key' : !containsNumbers(additionalBenefits), 'ng-invalid-key' : containsNumbers(additionalBenefits) }">
-                <br>
-                <label class="form-label">Deductible:</label>
-                <input class="form-control" type="number" min="0" ng-model="deductible" placeholder="Deductible" ng-class="{ 'ng-valid-key': deductible > 0, 'ng-invalid-key': !(deductible>0)  }">
-                <br>
-              </div>
-            </div>
-            <button class="btn btn-primary form-control submit" ng-click="saveUser()" ng-disabled="error || incomplete"> Save Changes</button>
-        </form>
-
-          <!-- <div class="d-flex fixed-top justify-content-center mt-5 pane" ng-show="showErrorMessage">
-            <div class="card p-3">
-                <span>Please fill correct values in all fields before saving.</span>
-                <div class="mt-4 text-right">
-                    <button class="btn btn-primary" type="button" ng-click="showErrorMessage = false">Close</button>
+                  <br>
+                  <label class="form-label">Coverage Type:</label>
+                  <input class="form-control" type="text" ng-model="coverageType" placeholder="Coverage Type" ng-class="{ 'ng-valid-key' : !containsNumbers(coverageType), 'ng-invalid-key' : containsNumbers(coverageType)}">
+                  <br>
+                  <label class="form-label">Premium cost:</label>
+                  <input class="form-control" type="number" min="0" ng-model="premiumCost" placeholder="Premium cost(Monthly)" ng-class="{ 'ng-valid-key': premiumCost > 0, 'ng-invalid-key': !(premiumCost>0)}">
+                  <br>
                 </div>
+                <div class="col-md-6">
+                  <label class="form-label">Discounts:</label>
+                  <input class="form-control" type="text" ng-model="discounts" placeholder="Discounts" ng-class="{ 'ng-valid-key' : !containsNumbers(discounts), 'ng-invalid-key' : containsNumbers(discounts) }">
+                  <br>
+                  <label class="form-label">Additional Benefits:</label>
+                  <input class="form-control" type="text" ng-model="additionalBenefits" placeholder="Additional Benefits" ng-class="{ 'ng-valid-key' : !containsNumbers(additionalBenefits), 'ng-invalid-key' : containsNumbers(additionalBenefits) }">
+                  <br>
+                  <label class="form-label">Deductible:</label>
+                  <input class="form-control" type="number" min="0" ng-model="deductible" placeholder="Deductible" ng-class="{ 'ng-valid-key': deductible > 0, 'ng-invalid-key': !(deductible>0)  }">
+                  <br>
+                </div>
+              </div>
+
+              <div class="row align-items-center">
+                <div class="col-md-6">
+                  <button class="btn btn-primary form-control submit" ng-click="saveUser()" ng-disabled="error || incomplete"> Save Changes</button>
+                </div>
+                <div class="col-md-6">
+                  <button class="btn btn-primary form-control submit" ng-click="hideform = true" ng-disabled="error || incomplete"> Hide</button>
+                </div>
+              </div>
+
+          </form>
+
+            <div class="d-flex fixed-top justify-content-center mt-5 pane" ng-show="showErrorMessage">
+              <div class="card p-3">
+                  <span>Please fill correct values in all fields before saving.</span>
+                  <div class="mt-4 text-right">
+                      <button class="btn btn-primary" type="button" ng-click="showErrorMessage = false">Close</button>
+                  </div>
+              </div>
             </div>
-          </div> -->
 
         </div>
 
