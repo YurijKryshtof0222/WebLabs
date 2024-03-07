@@ -317,15 +317,6 @@
 
           <h4 class="text-center pt-1">Choose tariff you want purchase</h4>
 
-          <!-- <select class="form-select">
-            <option ng-repeat="tariff in tariffs">{{tariff.policyName}}, {{tariff.coverageType}}</option>
-          </select> -->
-
-          <select class="form-select" class="form-select" ng-model="selectedTariff" ng-options="tariff.policyName + ', ' + tariff.coverageType for tariff in tariffs"></select>
-          <p>You choose {{selectedTariff.policyName}}</p>
-          <p>Its premium cost: {{selectedTariff.premiumCost}}</p>
-          <p>Its deductible: {{selectedTariff.deductible}}</p>
-
           <h4 class="text-center">Edit</h4>
           <table class="table table-striped table-hover table-bordered table-sm">
             <thead>
@@ -343,7 +334,7 @@
             <tbody>
               <tr ng-repeat="tariff in tariffs | orderByPremium">
                 <td>
-                    <button class="btn btn-secondary" ng-click="editUser(tariff.id)">Edit</button>
+                    <button class="btn btn-secondary" ng-click="editTariff(tariff.id)">Edit</button>
                 </td>
                 <td>{{ $index + 1}}</td>
                 <td>{{ tariff.policyName}}</td>
@@ -355,47 +346,110 @@
               </tr>
             </tbody>
           </table>
-          <button class="btn btn-primary" ng-click="editUser('new')">&#9998; Create New User</button>
+          <button class="btn btn-primary" ng-click="requestTariff()">Choose tariff</button>
+          <button class="btn btn-primary" ng-click="editTariff('new')">&#9998; Create New User(for admins)</button>
 
-          <form ng-hide="hideform">
-            <h3 ng-show="edit">Create Tariff:</h3>
-            <h3 ng-hide="edit">Edit Tariff:</h3>
-
+          <form ng-hide="hideChooseTariffForm">
             <div class="row align-items-center pt-2">
+                <div class="col-md-6">
+                    <label class="form-label">Name:</label>
+                    <input class="form-control" type="text" ng-model="clientName" placeholder="Your Name" 
+                      ng-class="{ 'ng-valid-key' : isValidClientName(clientName), 'ng-invalid-key' : !isValidClientName(clientName)}" 
+                      required>
+                    <br>
+                    <label class="form-label">Telephone number:</label>
+                    <input class="form-control" type="tel" ng-model="phoneNumber" placeholder="Your Telephone number"
+                      ng-class="{ 'ng-valid-key' : isValidPhoneNumber(phoneNumber), 'ng-invalid-key' : !isValidPhoneNumber(phoneNumber)}"
+                      ng-blur= "phoneNumberTip = !isValidEmail(email)" required>  
+                    <span ng-show="phoneNumberTip">Example of telephone number: +380937161488</span>
+                    <br>
+                    <label class="form-label">Email:</label>
+                    <input class="form-control" type="email" ng-model="email" placeholder="Your email" 
+                      ng-class="{ 'ng-valid-key' : isValidEmail(email), 'ng-invalid-key' : !isValidEmail(email)}" 
+                      ng-blur="showEmailTip = !isValidEmail(email)" required>
+                      <span ng-show="showEmailTip">Example of email: username@email.com</span>
+                    <br>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Car Brand:</label>
+                    <select class="form-select" id="carBrand" ng-model="selectedCarBrand = carBrands[0]">
+                      <option ng-repeat="x in carBrands" >{{x}}</option>
+                    </select>
+                    <br>
+                    <label class="form-label">Model:</label>
+                    <input class="form-control" type="text" ng-model="carModel" placeholder="Model of your car" 
+                      ng-class = "{ 'ng-valid-key' : isValidText(carModel), 'ng-invalid-key' : !isValidText(carModel)}" required>
+                    <br>
+                    <label class="form-label">Tariff:</label>
+                    <select class="form-select" 
+                      ng-model="selectedTariff" 
+                      ng-init="selectedTariff = tariffs[0]"
+                      ng-options="tariff.policyName + ', ' + tariff.coverageType for tariff in tariffs"></select>
+                    <br>
+                </div>
+            </div>
+
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <button type="submit" class="btn btn-primary form-control submit" ng-disabled="error || incomplete" ng-click="sendData()"> Send</button>
+              </div>
+              <div class="col-md-6">
+                <button class="btn btn-primary form-control submit" ng-click="hideChooseTariffForm = true" ng-disabled="error || incomplete"> Hide</button>
+              </div>
+            </div>
+
+        </form>
+
+        <form ng-hide="hideTariffEditorForm">
+        <style>
+          form.ng-dirty {
+            background-color: wheat;
+            border-radius: 10px
+          }
+        </style>
+
+          <h3 ng-show="edit">Create Tariff:</h3>
+          <h3 ng-hide="edit">Edit Tariff:</h3>
+          <div class="row align-items-center pt-2">
               <div class="col-md-6">
                 <label class="form-label">Policy Name:</label>
-                <input class="form-control" type="text" ng-model="policyName" placeholder="Policy Name" ng-class="{ 'ng-valid-key' : !containsNumbers(policyName), 'ng-invalid-key' : containsNumbers(policyName)}">
-                  <br>
-                  <label class="form-label">Coverage Type:</label>
-                  <input class="form-control" type="text" ng-model="coverageType" placeholder="Coverage Type" ng-class="{ 'ng-valid-key' : !containsNumbers(coverageType), 'ng-invalid-key' : containsNumbers(coverageType)}">
-                  <br>
-                  <label class="form-label">Premium cost:</label>
-                  <input class="form-control" type="number" min="0" ng-model="premiumCost" placeholder="Premium cost(Monthly)" ng-class="{ 'ng-valid-key': premiumCost > 0, 'ng-invalid-key': !(premiumCost>0)}">
-                  <br>
-                </div>
-                <div class="col-md-6">
-                  <label class="form-label">Discounts:</label>
-                  <input class="form-control" type="text" ng-model="discounts" placeholder="Discounts" ng-class="{ 'ng-valid-key' : !containsNumbers(discounts), 'ng-invalid-key' : containsNumbers(discounts) }">
-                  <br>
-                  <label class="form-label">Additional Benefits:</label>
-                  <input class="form-control" type="text" ng-model="additionalBenefits" placeholder="Additional Benefits" ng-class="{ 'ng-valid-key' : !containsNumbers(additionalBenefits), 'ng-invalid-key' : containsNumbers(additionalBenefits) }">
-                  <br>
-                  <label class="form-label">Deductible:</label>
-                  <input class="form-control" type="number" min="0" ng-model="deductible" placeholder="Deductible" ng-class="{ 'ng-valid-key': deductible > 0, 'ng-invalid-key': !(deductible>0)  }">
-                  <br>
-                </div>
+                <input class="form-control" type="text" ng-model="policyName" placeholder="Policy Name" 
+                ng-class="{ 'ng-valid-key' : !containsNumbers(policyName), 'ng-invalid-key' : containsNumbers(policyName)}" required>
+                <br>
+                <label class="form-label">Coverage Type:</label>
+                <input class="form-control" type="text" ng-model="coverageType" placeholder="Coverage Type" 
+                ng-class="{ 'ng-valid-key' : !containsNumbers(coverageType), 'ng-invalid-key' : containsNumbers(coverageType)}" required>
+                <br>
+                <label class="form-label">Premium cost:</label>
+                <input class="form-control" type="number" min="0" ng-model="premiumCost" placeholder="Premium cost(Monthly)" 
+                ng-class="{ 'ng-valid-key': premiumCost > 0, 'ng-invalid-key': !(premiumCost>0)}" required>
+                <br>
               </div>
-
-              <div class="row align-items-center">
-                <div class="col-md-6">
-                  <button class="btn btn-primary form-control submit" ng-click="saveUser()" ng-disabled="error || incomplete"> Save Changes</button>
-                </div>
-                <div class="col-md-6">
-                  <button class="btn btn-primary form-control submit" ng-click="hideform = true" ng-disabled="error || incomplete"> Hide</button>
-                </div>
+              <div class="col-md-6">
+                <label class="form-label">Discounts:</label>
+                <input class="form-control" type="text" ng-model="discounts" placeholder="Discounts" 
+                  ng-class="{ 'ng-valid-key' : !containsNumbers(discounts), 'ng-invalid-key' : containsNumbers(discounts) }" required>
+                <br>
+                <label class="form-label">Additional Benefits:</label>
+                <input class="form-control" type="text" ng-model="additionalBenefits" placeholder="Additional Benefits" 
+                  ng-class="{ 'ng-valid-key' : !containsNumbers(additionalBenefits), 'ng-invalid-key' : containsNumbers(additionalBenefits) }" required>
+                <br>
+                <label class="form-label">Deductible:</label>
+                <input class="form-control" type="number" min="0" ng-model="deductible" placeholder="Deductible" 
+                  ng-class="{ 'ng-valid-key': deductible > 0, 'ng-invalid-key': !(deductible>0) }" required>
+                <br>
+            </div>
+          </div>
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <button type="submit" class="btn btn-primary form-control submit" ng-click="saveTariff()" ng-disabled="error || incomplete"> Save Changes</button>
               </div>
+              <div class="col-md-6">
+                <button class="btn btn-primary form-control submit" ng-click="hideTariffEditorForm = true" ng-disabled="error || incomplete"> Hide</button>
+              </div>
+            </div>
 
-          </form>
+        </form>
 
             <div class="d-flex fixed-top justify-content-center mt-5 pane" ng-show="showErrorMessage">
               <div class="card p-3">
@@ -514,5 +568,6 @@
     <script src="scripts/changeStyle.js"></script>
     <script src="scripts/jqueryScripts.js"></script>
     <script src="scripts/tariffs.js"></script>
+    <script src="scripts/userTarrifRequest.js"></script>
   </body>
 </html>

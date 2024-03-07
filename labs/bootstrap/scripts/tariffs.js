@@ -3,14 +3,21 @@ angular.module('myApp', []).controller('userCtrl', function ($scope) {
         $scope.tariffs = [
             {id: 1, policyName: 'Basic', coverageType: "Liability", premiumCost: 50, deductible: 250, discounts: "Student, Bundling", additionalBenefits: "None"},
             {id: 2, policyName: 'Ultimate', coverageType: "Full Coverage", premiumCost: 150, deductible: 1050, discounts: "Safe Driver, Multi-Car", additionalBenefits: "Accident Forgiveness"},
-            {id: 3, policyName: 'Plus', coverageType: "Liability", premiumCost: 80, deductible: 500, discounts: "Defensive Driving", additionalBenefits: "24/7 Claims Support"},
+            {id: 3, policyName: 'Plus', coverageType: "Liability", premiumCost: 80, deductible: 500, discounts: "Defensive Driving", additionalBenefits: "Claims Support"},
             {id: 4, policyName: 'Platinum', coverageType: "Full Coverage", premiumCost: 1200, deductible: 1500, discounts: "Safe Driver, Multi-Policy", additionalBenefits: "Roadside Assistance, Rental Car Coverage"},
         ];
-        $scope.hideform = true;
+        $scope.carBrands = [
+            "Audi","BMW","Volkswagen","Mercedes-Benz","Other"
+        ];
+        $scope.defaultCarBrand = "Audi";
+
+        $scope.hideTariffEditorForm = true;
+        $scope.hideChooseTariffForm = true;
         $scope.showErrorMessage = false;
     
-        $scope.editUser = function (id) {
-            $scope.hideform = false;
+        $scope.editTariff = function (id) {
+            $scope.hideTariffEditorForm = false;
+            $scope.hideChooseTariffForm = true;
             if (id == 'new') {
                 $scope.edit = true;
                 $scope.policyName = '';
@@ -31,11 +38,8 @@ angular.module('myApp', []).controller('userCtrl', function ($scope) {
             }
         };
     
-        $scope.saveUser = function () {
-            $scope.hideform = false;
-            $scope.showErrorMessage = false;
+        $scope.saveTariff = function () {
             if ($scope.edit == true) {
-                // Перевірка чи всі необхідні поля заповнені
                 if ($scope.allTariffFieldsAreFilledCorrectly()) {
                     $scope.LENGTH = $scope.tariffs.length;
                     $scope.tariffs.push({
@@ -62,19 +66,82 @@ angular.module('myApp', []).controller('userCtrl', function ($scope) {
             }
         };
 
+        $scope.clientName = '';
+        $scope.phoneNumber = '';
+        $scope.email = '';
+        $scope.carBrand = '';
+        $scope.carModel = '';
+        $scope.selectedTariff = '';
+    
+        $scope.allFieldsAreFilled = function() {
+            return $scope.clientName && $scope.phoneNumber && $scope.email && $scope.carBrand && $scope.carModel && $scope.selectedTariff;
+        };
+
+        $scope.requestTariff = function() {
+            $scope.hideChooseTariffForm = false;
+            $scope.hideTariffEditorForm = true;
+        };
+    
+        $scope.sendData = function() {
+            if ($scope.allUserFieldsAreFilledCorrectly()) {
+                // $scope.hideChooseTariffForm = true;
+                $scope.clientName = '';
+                $scope.phoneNumber = '';
+                $scope.email = '';
+                $scope.carModel = '';
+
+                alert("The tariff request was sended suceessfully!");
+                $scope.hideChooseTariffForm = true;
+            } else {
+                // alert("Please fill all required fields before sending.");
+                $scope.showErrorMessage = true
+            }
+        };
+    
+        $scope.hideForm = function() {
+            $scope.hideChooseTariffForm = true;
+        };
+    
         $scope.allTariffFieldsAreFilledCorrectly = function() {
-            return $scope.policyName   && !$scope.containsNumbers($scope.policyName)
-                && $scope.coverageType && !$scope.containsNumbers($scope.coverageType)
-                && $scope.premiumCost  && $scope.premiumCost > 0
-                && $scope.deductible   && $scope.deductible > 0
-                && $scope.discounts    && !$scope.containsNumbers($scope.policyName)
-                && $scope.additionalBenefits 
-                                       && !$scope.containsNumbers($scope.additionalBenefits)
+            return  $scope.isValidText($scope.policyName)   && !$scope.containsNumbers($scope.policyName)
+                &&  $scope.isValidText($scope.coverageType) && !$scope.containsNumbers($scope.coverageType)
+                &&  $scope.isValidText($scope.premiumCost)  && $scope.premiumCost > 0
+                &&  $scope.isValidText($scope.deductible)   && $scope.deductible > 0
+                &&  $scope.isValidText($scope.discounts)    && !$scope.containsNumbers($scope.policyName)
+                &&  $scope.isValidText($scope.additionalBenefits) 
+                && !$scope.containsNumbers($scope.additionalBenefits)
+        };
+
+        $scope.allUserFieldsAreFilledCorrectly = function() {
+            return $scope.isValidClientName($scope.clientName)
+                && $scope.isValidPhoneNumber($scope.phoneNumber)
+                && $scope.isValidEmail($scope.email)
+                && $scope.isValidText($scope.carModel)
+        };
+
+        $scope.isValidText = function(value) {
+            string = new String(value)
+            return string && string.trim() !== '';
         };
     
         $scope.containsNumbers = function(value) {
-            return value.length == 0 || /\d/.test(value);        
+            return value == 0 || /\d/.test(value);        
         };
+
+        $scope.isValidClientName = function(value) {
+            return $scope.isValidText(value) && !$scope.containsNumbers(value);
+        };
+
+        $scope.isValidPhoneNumber = function(value) {
+            var regex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+            return regex.test(value);
+        };
+
+        $scope.isValidEmail = function(value) {
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(value);
+        };
+
     });
 
 angular.module('myApp').filter('orderByPremium', function() {

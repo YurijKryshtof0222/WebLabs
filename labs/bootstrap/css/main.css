@@ -52,11 +52,11 @@
     width: 400px;
 }
 
-.ng-valid-key {
+input.ng-valid {
     border: 2px solid green; 
     /* background-color: lightgreen;  */
 }
 
-.ng-invalid-key {
+input.ng-invalid {
     border: 2px solid red; 
 }
