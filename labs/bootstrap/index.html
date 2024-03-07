@@ -354,13 +354,14 @@
                 <div class="col-md-6">
                     <label class="form-label">Name:</label>
                     <input class="form-control" type="text" ng-model="clientName" placeholder="Your Name" 
-                      ng-class="{ 'ng-valid-key' : isValidClientName(clientName), 'ng-invalid-key' : !isValidClientName(clientName)}" 
-                      required>
+                      ng-class="{ 'ng-valid-key' : isValidClientName(clientName), 'ng-invalid-key' : !isValidClientName(clientName)}"
+                      ng-blur= "showNameTip = !isValidClientName(clientName)" required>
+                      <span ng-show="showNameTip">Example of name: John Doe</span>
                     <br>
                     <label class="form-label">Telephone number:</label>
                     <input class="form-control" type="tel" ng-model="phoneNumber" placeholder="Your Telephone number"
                       ng-class="{ 'ng-valid-key' : isValidPhoneNumber(phoneNumber), 'ng-invalid-key' : !isValidPhoneNumber(phoneNumber)}"
-                      ng-blur= "phoneNumberTip = !isValidEmail(email)" required>  
+                      ng-blur= "phoneNumberTip = !isValidPhoneNumber(email)" required>  
                     <span ng-show="phoneNumberTip">Example of telephone number: +380937161488</span>
                     <br>
                     <label class="form-label">Email:</label>
@@ -378,7 +379,8 @@
                     <br>
                     <label class="form-label">Model:</label>
                     <input class="form-control" type="text" ng-model="carModel" placeholder="Model of your car" 
-                      ng-class = "{ 'ng-valid-key' : isValidText(carModel), 'ng-invalid-key' : !isValidText(carModel)}" required>
+                      ng-class = "{ 'ng-valid-key' : isValidText(carModel), 'ng-invalid-key' : !isValidText(carModel)}" 
+                      ng-blur="showEmailTip = !isValidEmail(email)" required>
                     <br>
                     <label class="form-label">Tariff:</label>
                     <select class="form-select" 
