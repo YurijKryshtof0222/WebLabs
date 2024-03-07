@@ -7,6 +7,7 @@ angular.module('myApp', []).controller('userCtrl', function ($scope) {
             {id: 4, policyName: 'Platinum', coverageType: "Full Coverage", premiumCost: 1200, deductible: 1500, discounts: "Safe Driver, Multi-Policy", additionalBenefits: "Roadside Assistance, Rental Car Coverage"},
         ];
         $scope.hideform = true;
+        $scope.showErrorMessage = false;
     
         $scope.editUser = function (id) {
             $scope.hideform = false;
@@ -32,6 +33,7 @@ angular.module('myApp', []).controller('userCtrl', function ($scope) {
     
         $scope.saveUser = function () {
             $scope.hideform = false;
+            $scope.showErrorMessage = false;
             if ($scope.edit == true) {
                 // Перевірка чи всі необхідні поля заповнені
                 if ($scope.allTariffFieldsAreFilledCorrectly()) {
@@ -46,8 +48,9 @@ angular.module('myApp', []).controller('userCtrl', function ($scope) {
                         additionalBenefits: $scope.additionalBenefits
                     });
                 } else {
-                    alert("Please fill correct values in all fields before saving.");
-                    return; // Перериваємо операцію збереження
+                    // alert("Please fill correct values in all fields before saving.");
+                    $scope.showErrorMessage = true
+                    return;
                 }
             } else {
                 $scope.tariffs[$scope.index].policyName = $scope.policyName;
@@ -62,8 +65,8 @@ angular.module('myApp', []).controller('userCtrl', function ($scope) {
         $scope.allTariffFieldsAreFilledCorrectly = function() {
             return $scope.policyName   && !$scope.containsNumbers($scope.policyName)
                 && $scope.coverageType && !$scope.containsNumbers($scope.coverageType)
-                && $scope.premiumCost  && !$scope.premiumCost > 0
-                && $scope.deductible   && !$scope.deductible > 0
+                && $scope.premiumCost  && $scope.premiumCost > 0
+                && $scope.deductible   && $scope.deductible > 0
                 && $scope.discounts    && !$scope.containsNumbers($scope.policyName)
                 && $scope.additionalBenefits 
                                        && !$scope.containsNumbers($scope.additionalBenefits)
