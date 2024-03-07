@@ -1,4 +1,5 @@
 <form ng-hide="hideChooseTariffForm">
+    <h3>Choose Tariff:</h3>
     <div class="row align-items-center pt-2">
         <div class="col-md-6">
             <label class="form-label">Name:</label>
@@ -10,7 +11,7 @@
             <label class="form-label">Telephone number:</label>
             <input class="form-control" type="tel" ng-model="phoneNumber" placeholder="Your Telephone number"
               ng-class="{ 'ng-valid-key' : isValidPhoneNumber(phoneNumber), 'ng-invalid-key' : !isValidPhoneNumber(phoneNumber)}"
-              ng-blur= "phoneNumberTip = !isValidPhoneNumber(email)" required>  
+              ng-blur= "phoneNumberTip = !isValidPhoneNumber(phoneNumber)" required>  
             <span ng-show="phoneNumberTip">Example of telephone number: +380937161488</span>
             <br>
             <label class="form-label">Email:</label>

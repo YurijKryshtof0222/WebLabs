@@ -121,7 +121,7 @@ angular.module('myApp', []).controller('userCtrl', function ($scope) {
 
         $scope.isValidText = function(value) {
             string = new String(value)
-            return string && string.trim() !== '';
+            return string && string.length >= 2 && string.trim() !== '';
         };
     
         $scope.containsNumbers = function(value) {
@@ -129,7 +129,7 @@ angular.module('myApp', []).controller('userCtrl', function ($scope) {
         };
 
         $scope.isValidClientName = function(value) {
-            return $scope.isValidText(value) && !$scope.containsNumbers(value);
+            return $scope.isValidText(value) && new String(value).length >= 5 && !$scope.containsNumbers(value);
         };
 
         $scope.isValidPhoneNumber = function(value) {
