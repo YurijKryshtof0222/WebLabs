@@ -34,7 +34,7 @@ angular.module('myApp', []).controller('userCtrl', function ($scope) {
             $scope.hideform = false;
             if ($scope.edit == true) {
                 // Перевірка чи всі необхідні поля заповнені
-                if ($scope.policyName && $scope.coverageType && $scope.premiumCost && $scope.deductible && $scope.discounts && $scope.additionalBenefits) {
+                if ($scope.allTariffFieldsAreFilledCorrectly()) {
                     $scope.LENGTH = $scope.tariffs.length;
                     $scope.tariffs.push({
                         id: $scope.LENGTH + 1,
@@ -57,6 +57,16 @@ angular.module('myApp', []).controller('userCtrl', function ($scope) {
                 $scope.tariffs[$scope.index].discounts = $scope.discounts;
                 $scope.tariffs[$scope.index].additionalBenefits = $scope.additionalBenefits;
             }
+        };
+
+        $scope.allTariffFieldsAreFilledCorrectly = function() {
+            return $scope.policyName   && !$scope.containsNumbers($scope.policyName)
+                && $scope.coverageType && !$scope.containsNumbers($scope.coverageType)
+                && $scope.premiumCost  && !$scope.premiumCost > 0
+                && $scope.deductible   && !$scope.deductible > 0
+                && $scope.discounts    && !$scope.containsNumbers($scope.policyName)
+                && $scope.additionalBenefits 
+                                       && !$scope.containsNumbers($scope.additionalBenefits)
         };
     
         $scope.containsNumbers = function(value) {
