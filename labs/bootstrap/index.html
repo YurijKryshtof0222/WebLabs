@@ -12,6 +12,8 @@
           rel="stylesheet">
     <link href="css/fontello.css",
           rel="stylesheet">
+    <link href="css/ng_animations.css"
+          ref="stylesheet">
     <link rel="stylesheet" href="angularjs-1.6.9-dist/css/w3.css">
 
     <script src="scripts/angularjs-1.6.9-dist/js/angular.min.js"></script>
@@ -349,22 +351,30 @@
                 </div>
                 <div class="col-md-6">
                     <label class="form-label">Car Brand:</label>
-                    <select class="form-select" id="carBrand" ng-model="selectedCarBrand = carBrands[0]">
+                    <select class="form-select" id="carBrand" 
+                    ng-model="selectedCarBrand"
+                    ng-init="selectedCarBrand = carBrands[0]">
                       <option ng-repeat="x in carBrands" >{{x}}</option>
                     </select>
                     <br>
                     <label class="form-label">Model:</label>
                     <input class="form-control" type="text" ng-model="carModel" placeholder="Model of your car" 
                       ng-class = "{ 'ng-valid-key' : isValidText(carModel), 'ng-invalid-key' : !isValidText(carModel)}" 
-                      ng-blur="showEmailTip = !isValidEmail(carModel)" required>
+                      ng-focus="showModelTip = !isValidText(carModel)" required>
+                      <span ng-show="showModelTip">If you selected other in car brand, please type brand and car model</span>
                     <br>
                     <label class="form-label">Tariff:</label>
                     <select class="form-select" 
                       ng-model="selectedTariff" 
                       ng-init="selectedTariff = tariffs[0]"
-                      ng-options="tariff.policyName + ', ' + tariff.coverageType for tariff in tariffs"></select>
+                      ng-options="tariff.policyName + ', ' 
+                      + tariff.coverageType for tariff in tariffs"></select>
                     <br>
                 </div>
+                <span>
+                  Selected tariff:{{selectedTariff.policyName}}, {{selectedTariff.coverageType}}, {{selectedTariff.premiumCost}}, {{selectedTariff.deductible}}, {{selectedTariff.discounts}}, {{selectedTariff.additionalBenefits}}
+                </span>
+              </br>
             </div>
         
             <div class="row align-items-center">
@@ -510,7 +520,7 @@
 
         </div>
 
-        <div class="d-flex fixed-bottom justify-content-center mt-5 pane">
+        <div class="d-flex fixed-bottom justify-content-center mt-5 pane" ng-animate="'animate'">
           <div class="card p-3 cookie"><span>We use third party cookies to personalize content, ads and analyze site traffic.<br></span><a href="#">Learn more<i class="fa fa-angle-right ml-2"></i></a>
               <div class="mt-4 text-right">
                 <button class="btn mr-3 decline delete">Decline</span>
@@ -542,6 +552,8 @@
       crossorigin="anonymous">
     </script>
     <script src="scripts/angularjs-1.6.9-dist/js/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.js"></script>
+
     <script src="scripts/questionSubmit.js"></script>
     <script src="scripts/changeStyle.js"></script>
     <script src="scripts/jqueryScripts.js"></script>

@@ -1,0 +1,23 @@
+/* Визначення анімаційних класів */
+.animate.ng-enter,
+.animate.ng-leave {
+    transition: opacity 0.5s ease-in-out; /* Перехід для прозорості */
+}
+
+/* Коли елемент з'являється */
+.animate.ng-enter {
+    opacity: 0; /* Встановлення початкової прозорості */
+}
+
+.animate.ng-enter.ng-enter-active {
+    opacity: 1; /* Кінцева прозорість */
+}
+
+/* Коли елемент зникає */
+.animate.ng-leave {
+    opacity: 1; /* Встановлення початкової прозорості */
+}
+
+.animate.ng-leave.ng-leave-active {
+    opacity: 0; /* Кінцева прозорість */
+}

@@ -1,4 +1,4 @@
-angular.module('myApp', []).controller('userCtrl', function ($scope) {
+angular.module('myApp', ['ngAnimate']).controller('userCtrl', function ($scope) {
         $scope.idCounter = 4 
         $scope.tariffs = [
             {id: 1, policyName: 'Basic', coverageType: "Liability", premiumCost: 50, deductible: 250, discounts: "Student, Bundling", additionalBenefits: "None"},
