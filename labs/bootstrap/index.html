@@ -324,6 +324,7 @@
           <button class="btn btn-primary" ng-click="requestTariff()">Choose tariff</button>
           <button class="btn btn-primary" ng-click="editTariff('new')">&#9998; Create New User(for admins)</button>
 
+          <!-- <form ng-include="'chooseTariffForm.htm'"></form> -->
           <form ng-hide="hideChooseTariffForm">
             <div class="row align-items-center pt-2">
                 <div class="col-md-6">
@@ -336,7 +337,7 @@
                     <label class="form-label">Telephone number:</label>
                     <input class="form-control" type="tel" ng-model="phoneNumber" placeholder="Your Telephone number"
                       ng-class="{ 'ng-valid-key' : isValidPhoneNumber(phoneNumber), 'ng-invalid-key' : !isValidPhoneNumber(phoneNumber)}"
-                      ng-blur= "phoneNumberTip = !isValidPhoneNumber(email)" required>  
+                      ng-blur= "phoneNumberTip = !isValidPhoneNumber(phoneNumber)" required>  
                     <span ng-show="phoneNumberTip">Example of telephone number: +380937161488</span>
                     <br>
                     <label class="form-label">Email:</label>
@@ -355,7 +356,7 @@
                     <label class="form-label">Model:</label>
                     <input class="form-control" type="text" ng-model="carModel" placeholder="Model of your car" 
                       ng-class = "{ 'ng-valid-key' : isValidText(carModel), 'ng-invalid-key' : !isValidText(carModel)}" 
-                      ng-blur="showEmailTip = !isValidEmail(email)" required>
+                      ng-blur="showEmailTip = !isValidEmail(carModel)" required>
                     <br>
                     <label class="form-label">Tariff:</label>
                     <select class="form-select" 
@@ -365,7 +366,7 @@
                     <br>
                 </div>
             </div>
-
+        
             <div class="row align-items-center">
               <div class="col-md-6">
                 <button type="submit" class="btn btn-primary form-control submit" ng-disabled="error || incomplete" ng-click="sendData()"> Send</button>
@@ -374,7 +375,7 @@
                 <button class="btn btn-primary form-control submit" ng-click="hideChooseTariffForm = true" ng-disabled="error || incomplete"> Hide</button>
               </div>
             </div>
-
+        
         </form>
 
         <form ng-hide="hideTariffEditorForm">
