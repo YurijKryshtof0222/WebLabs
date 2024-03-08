@@ -56,3 +56,7 @@ input.ng-valid-key {
 input.ng-invalid-key {
     border: 2px solid red; 
 }
+
+.ng-non-active-btn {
+    background-color: gray;
+}

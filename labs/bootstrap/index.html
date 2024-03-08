@@ -360,7 +360,7 @@
                     <label class="form-label">Model:</label>
                     <input class="form-control" type="text" ng-model="carModel" placeholder="Model of your car" 
                       ng-class = "{ 'ng-valid-key' : isValidText(carModel), 'ng-invalid-key' : !isValidText(carModel)}" 
-                      ng-focus="showModelTip = !isValidText(carModel)" required>
+                      ng-mouseenter="showModelTip = isValidText()" required>
                       <span ng-show="showModelTip">If you selected other in car brand, please type brand and car model</span>
                     <br>
                     <label class="form-label">Tariff:</label>
@@ -379,10 +379,11 @@
         
             <div class="row align-items-center">
               <div class="col-md-6">
-                <button type="submit" class="btn btn-primary form-control submit" ng-disabled="error || incomplete" ng-click="sendData()"> Send</button>
+                <button type="submit" class="btn btn-primary form-control submit" ng-disabled="error || incomplete || !allUserFieldsAreFilledCorrectly()" 
+                 ng-click="sendData()"> Send</button>
               </div>
               <div class="col-md-6">
-                <button class="btn btn-primary form-control submit" ng-click="hideChooseTariffForm = true" ng-disabled="error || incomplete"> Hide</button>
+                <button class="btn btn-primary form-control submit" ng-click="hideChooseTariffForm = true" ng-disabled="error || incomplete ||"> Hide</button>
               </div>
             </div>
         
