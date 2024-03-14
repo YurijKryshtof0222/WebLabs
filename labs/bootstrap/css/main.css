@@ -63,9 +63,6 @@ input.ng-invalid-key {
 
 
 
-
-
-
 .transitioned-element {
     transition: all 0.3s ease-in-out; /* Плавний перехід для всіх властивостей з тривалістю 0.3 секунди та згладжуванням ease-in-out */
 }
