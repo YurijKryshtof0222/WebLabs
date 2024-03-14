@@ -60,3 +60,28 @@ input.ng-invalid-key {
 .ng-non-active-btn {
     background-color: gray;
 }
+
+
+
+
+
+
+.transitioned-element {
+    transition: all 0.3s ease-in-out; /* Плавний перехід для всіх властивостей з тривалістю 0.3 секунди та згладжуванням ease-in-out */
+}
+
+.transitioned-element.ng-hide-add,
+.transitioned-element.ng-hide-remove {
+    display: block !important; /* Встановлюємо властивість display на block під час анімації */
+    opacity: 1; /* Встановлюємо початкову прозорість */
+}
+
+.transitioned-element.ng-hide-add.ng-hide-add-active,
+.transitioned-element.ng-hide-remove {
+    opacity: 0; /* Закінчуємо анімацію з прозорістю 0 */
+}
+
+.transitioned-element.ng-hide-add,
+.transitioned-element.ng-hide-remove.ng-hide-remove-active {
+    opacity: 1; /* Закінчуємо анімацію з прозорістю 1 */
+}

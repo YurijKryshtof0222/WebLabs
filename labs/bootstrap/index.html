@@ -10,7 +10,7 @@
           crossorigin="anonymous">
     <link href="css/main.css" 
           rel="stylesheet">
-    <link href="css/fontello.css",
+    <link href="css/fontello.css"
           rel="stylesheet">
     <link href="css/ng_animations.css"
           ref="stylesheet">
@@ -327,7 +327,7 @@
           <button class="btn btn-primary" ng-click="editTariff('new')">&#9998; Create New User(for admins)</button>
 
           <!-- <form ng-include="'chooseTariffForm.htm'"></form> -->
-          <form ng-hide="hideChooseTariffForm">
+          <form ng-hide="hideChooseTariffForm" class="transitioned-element" ng-class="{'ng-hide-add': hideChooseTariffForm, 'ng-hide-remove': !hideChooseTariffForm}">
             <div class="row align-items-center pt-2">
                 <div class="col-md-6">
                     <label class="form-label">Name:</label>
@@ -383,13 +383,13 @@
                  ng-click="sendData()"> Send</button>
               </div>
               <div class="col-md-6">
-                <button class="btn btn-primary form-control submit" ng-click="hideChooseTariffForm = true" ng-disabled="error || incomplete ||"> Hide</button>
+                <button class="btn btn-primary form-control submit" ng-click="hideChooseTariffForm = true" ng-disabled="error || incomplete"> Hide</button>
               </div>
             </div>
         
         </form>
 
-        <form ng-hide="hideTariffEditorForm">
+        <form ng-hide="hideTariffEditorForm" class="transitioned-element" ng-class="{'ng-hide-add': hideTariffEditorForm, 'ng-hide-remove': !hideTariffEditorForm}">
         <style>
           form.ng-dirty {
             background-color: wheat;
@@ -431,10 +431,10 @@
           </div>
             <div class="row align-items-center">
               <div class="col-md-6">
-                <button type="submit" class="btn btn-primary form-control submit" ng-click="saveTariff()" ng-disabled="error || incomplete"> Save Changes</button>
+                <button type="submit" class="btn btn-primary form-control submit" ng-click="saveTariff()" ng-disabled="error || incomplete || !allTariffFieldsAreFilledCorrectly()"> Save Changes</button>
               </div>
               <div class="col-md-6">
-                <button class="btn btn-primary form-control submit" ng-click="hideTariffEditorForm = true" ng-disabled="error || incomplete"> Hide</button>
+                <button class="btn btn-primary form-control transitioned-element animated-element" ng-click="hideTariffEditorForm = true" ng-disabled="error || incomplete"> Hide</button>
               </div>
             </div>
 
@@ -559,6 +559,5 @@
     <script src="scripts/changeStyle.js"></script>
     <script src="scripts/jqueryScripts.js"></script>
     <script src="scripts/tariffs.js"></script>
-    <script src="scripts/userTarrifRequest.js"></script>
   </body>
 </html>
