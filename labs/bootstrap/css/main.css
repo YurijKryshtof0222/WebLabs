@@ -64,21 +64,26 @@ input.ng-invalid-key {
 
 
 .transitioned-element {
-    transition: all 0.3s ease-in-out; /* Плавний перехід для всіх властивостей з тривалістю 0.3 секунди та згладжуванням ease-in-out */
+    transition: all 1s ease-in-out;
 }
 
 .transitioned-element.ng-hide-add,
 .transitioned-element.ng-hide-remove {
-    display: block !important; /* Встановлюємо властивість display на block під час анімації */
-    opacity: 1; /* Встановлюємо початкову прозорість */
+    display: block !important; 
+    opacity: 1; 
 }
 
 .transitioned-element.ng-hide-add.ng-hide-add-active,
 .transitioned-element.ng-hide-remove {
-    opacity: 0; /* Закінчуємо анімацію з прозорістю 0 */
+    opacity: 0; 
 }
 
 .transitioned-element.ng-hide-add,
 .transitioned-element.ng-hide-remove.ng-hide-remove-active {
-    opacity: 1; /* Закінчуємо анімацію з прозорістю 1 */
+    opacity: 1;
+}
+
+.zoomBtn:hover {
+    transform: scale(1.2);
+    transition: all 0.3s ease-in-out;
 }

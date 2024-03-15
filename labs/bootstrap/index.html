@@ -323,8 +323,8 @@
           
           <div ng-include="'myTable.htm'"></div>
 
-          <button class="btn btn-primary" ng-click="requestTariff()">Choose tariff</button>
-          <button class="btn btn-primary" ng-click="editTariff('new')">&#9998; Create New User(for admins)</button>
+          <button class="btn btn-primary zoomBtn" ng-click="requestTariff()">Choose tariff</button>
+          <button class="btn btn-primary zoomBtn" ng-click="editTariff('new')">&#9998; Create New User(for admins)</button>
 
           <!-- <form ng-include="'chooseTariffForm.htm'"></form> -->
           <form ng-hide="hideChooseTariffForm" class="transitioned-element" ng-class="{'ng-hide-add': hideChooseTariffForm, 'ng-hide-remove': !hideChooseTariffForm}">
@@ -434,7 +434,7 @@
                 <button type="submit" class="btn btn-primary form-control submit" ng-click="saveTariff()" ng-disabled="error || incomplete || !allTariffFieldsAreFilledCorrectly()"> Save Changes</button>
               </div>
               <div class="col-md-6">
-                <button class="btn btn-primary form-control transitioned-element animated-element" ng-click="hideTariffEditorForm = true" ng-disabled="error || incomplete"> Hide</button>
+                <button class="btn btn-primary form-control" ng-click="hideTariffEditorForm = true" ng-disabled="error || incomplete"> Hide</button>
               </div>
             </div>
 
